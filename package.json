@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint src"
+  },
   "dependencies": {
     "next": "^10.1.3",
     "react": "^17.0.2",
@@ -26,9 +32,6 @@
     "prettier": "^2.2.1",
     "typescript": "^4.2.4"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "author": "Jardel Goncalves <https://jardelgoncalves.dev",
   "license": "ISC"
 }
