@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Header } from '../components/Header'
 import { GlobalStyle } from '../styles/GlobalStyles'
 
 type Props = {
@@ -10,6 +11,7 @@ function MyApp({ Component, pageProps }: Props) {
   return (
     <>
       <GlobalStyle />
+      <Header />
       <Component {...pageProps} />
     </>
   )
