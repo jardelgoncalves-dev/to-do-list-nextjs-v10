@@ -9,10 +9,10 @@ export const Wrapper = styled.button`
   cursor: pointer;
   user-select: none;
   background-color: #fff;
-  color: #52b69a;
-  font-weight: 600;
-  font-size: 20px;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 17px;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   outline: none;
 `
