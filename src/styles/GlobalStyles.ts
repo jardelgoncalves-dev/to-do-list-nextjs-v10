@@ -7,10 +7,14 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :root {
+    --primary-color: #0466c8;
+  }
+
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #ffffff;
-    background-color: #0466c8;
+    background-color: var(--primary-color);
   }
 
 `
