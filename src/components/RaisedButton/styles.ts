@@ -15,4 +15,9 @@ export const Wrapper = styled.button`
   border: none;
   border-radius: 8px;
   outline: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `
