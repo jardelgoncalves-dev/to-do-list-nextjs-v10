@@ -16,6 +16,12 @@ export const Wrapper = styled.input`
   border-bottom-left-radius: 8px;
   outline: none;
 
+  &::placeholder {
+    font-size: 15px;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
   @media only screen and (max-width: 650px) {
     & {
       flex: 1;
