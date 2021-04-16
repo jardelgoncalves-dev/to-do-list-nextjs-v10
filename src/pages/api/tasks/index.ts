@@ -1,49 +1,31 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { ApiError } from '../../../helpers/api-error'
+import * as userRepository from '../../../helpers/task-repository'
 
-interface Task {
-  id: number
-  title: string
-  finished: boolean
-  createdAt: Date
-}
-
-export const tasks: Task[] = []
-
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-): void {
-  if (req.method === 'POST') return create(req, res)
-  if (req.method === 'GET') {
-    return res.status(200).json(tasks)
-  }
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === 'POST') return createTask(req, res)
+  if (req.method === 'GET') return getAllTask(req, res)
 
   return res.status(405).json({ message: 'Method not allowed' })
 }
 
-export function create(req: NextApiRequest, res: NextApiResponse) {
-  const { title } = req.body
-  const lastId = tasks[tasks.length - 1]?.id || 0
+async function createTask(req: NextApiRequest, res: NextApiResponse) {
+  try {
+    const { title } = req.body
+    const data = await userRepository.create(title)
 
-  const task = {
-    id: lastId + 1,
-    title,
-    finished: false,
-    createdAt: new Date(),
+    res.status(201).json(data)
+  } catch (error) {
+    return ApiError.errorHandler(error, res)
   }
-
-  tasks.push(task)
-  return res.status(201).json(task)
 }
 
-export function update(req: NextApiRequest, res: NextApiResponse) {
-  const { id } = req.query
+async function getAllTask(req: NextApiRequest, res: NextApiResponse) {
+  try {
+    const data = await userRepository.get()
 
-  const task = tasks.find((t) => t.id === Number(id))
-  if (!task) {
-    return res.status(404).json({ message: 'Task not found' })
+    res.status(200).json(data)
+  } catch (error) {
+    return ApiError.errorHandler(error, res)
   }
-
-  task.finished = !task.finished
-  return res.status(200).json(task)
 }
