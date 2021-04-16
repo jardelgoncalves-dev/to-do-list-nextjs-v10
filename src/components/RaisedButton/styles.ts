@@ -17,7 +17,16 @@ export const Wrapper = styled.button`
   outline: none;
   transition: opacity 0.2s;
 
+  &.primary {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
   &:hover {
     opacity: 0.8;
+  }
+
+  &.--disabled {
+    opacity: 0.5;
+    pointer-events: none;
   }
 `
