@@ -16,4 +16,20 @@ export const GlobalStyle = createGlobalStyle`
     color: #ffffff;
   }
 
+  .radius {
+    border-radius: 8px;
+  }
+
+  .modal-header-custom {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .modal-footer-custom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
 `
