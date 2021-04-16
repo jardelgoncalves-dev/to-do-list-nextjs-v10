@@ -3,7 +3,7 @@ import { Item, Task } from './Item'
 
 interface ListTaskProp {
   tasks: Task[]
-  onCheck?: (id?: number) => void
+  onCheck?: (task: Task) => void
   onEdit?: (task: Task) => void
   onDelete?: (id?: number) => void
 }
