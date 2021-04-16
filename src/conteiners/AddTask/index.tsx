@@ -22,7 +22,10 @@ export function AddTaskContainer({
         placeholder={inputPlaceholder}
         value={inputValue}
       />
-      <RaisedButton text="Add Task" onPress={onPress} />
+      <RaisedButton
+        text="Add Task"
+        onPress={inputValue ? onPress : () => null}
+      />
     </Wrapper>
   )
 }
