@@ -4,7 +4,7 @@ import { Checkbox } from '../Checkbox'
 import { IconName } from '../Icon'
 
 export interface Task {
-  id?: number
+  id: number
   title: string
   finished: boolean
   createdAt: string
@@ -12,7 +12,7 @@ export interface Task {
 
 export interface ItemProp {
   task: Task
-  onCheck?: (id?: number) => void
+  onCheck?: (task: Task) => void
   onEdit?: (task: Task) => void
   onDelete?: (id?: number) => void
 }
@@ -21,7 +21,7 @@ export function Item({ task, onCheck, onEdit, onDelete }: ItemProp) {
   return (
     <div className="card-item">
       <div className="card-item__finished">
-        <Checkbox checked={task.finished} onCheck={() => onCheck?.(task.id)} />
+        <Checkbox checked={!!task.finished} onCheck={() => onCheck?.(task)} />
       </div>
       <div className="card-item__content">
         <span className={`text ${task.finished ? '--checked' : ''}`}>
