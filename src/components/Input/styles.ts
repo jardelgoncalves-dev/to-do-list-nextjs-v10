@@ -16,6 +16,15 @@ export const Wrapper = styled.input`
   border-bottom-left-radius: 8px;
   outline: none;
 
+  &.darken {
+    color: var(--primary-color);
+    border: 2px solid #e6e6e6ca;
+  }
+
+  &.block {
+    max-width: 100%;
+  }
+
   &::placeholder {
     font-size: 15px;
     font-weight: normal;
